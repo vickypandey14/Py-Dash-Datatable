@@ -5,23 +5,18 @@ import dash_table
 import pandas as pd
 import requests
 
-# Function to fetch data from API
 def fetch_data():
     url = "YOUR_API_ENDPOINT"
     response = requests.get(url)
     data = response.json()
     return data
 
-# Fetch data from API
 data = fetch_data()
 
-# Convert data to pandas DataFrame
 df = pd.DataFrame(data)
 
-# Initialize Dash app
 app = dash.Dash(__name__)
 
-# Define layout
 app.layout = html.Div([
     html.H1("Data Table"),
     dash_table.DataTable(
